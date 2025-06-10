@@ -50,6 +50,13 @@ function AdminRegister() {
         try {
             const response = await axios.post('/auth/register', { first_name, middle_name, last_name, phone, address, email_id, password });
             toast.success(response.data.message);
+            setFirstName('');
+            setMiddleName('');
+            setLastName('');
+            setPhone('');
+            setAddress('');
+            setEmailId('');
+            setPassword('');
         } catch (error) {
             if (error.response && error.response.data && error.response.data.message) {
                 toast.error(error.response.data.message); // show actual backend message
